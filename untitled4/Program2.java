@@ -13,7 +13,6 @@ public class Program2 {
             String line;
             boolean first_line = true;
             int[] parts = new int[507];
-            // Чтение данных
             while ((line = reader.readLine()) != null) {
                 if (first_line) {
                     first_line = false;
@@ -61,6 +60,6 @@ public class Program2 {
                 return i;
             }
         }
-        return -1; // если элемент не найден
+        return -1;
     }
 }
