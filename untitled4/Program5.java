@@ -40,24 +40,19 @@ public class Program5 {
 
     private static int recursion(List<List<Integer>> triangle, int row, int col,
                            Map<String, Integer> interim) {
-        // Ключ для мемоизации
         String key = row + "," + col;
 
-        // Если уже вычисляли - возвращаем из кеша
         if (interim.containsKey(key)) {
             return interim.get(key);
         }
 
-        // Базовый случай: дошли до дна треугольника
         if (row == triangle.size() - 1) {
             return triangle.get(row).get(col);
         }
 
-        // Рекурсивно ищем минимальные пути в обе стороны
         int leftPath = recursion(triangle, row + 1, col, interim);
         int rightPath = recursion(triangle, row + 1, col + 1, interim);
 
-        // Текущий результат = текущее число + минимум из путей
         int result = triangle.get(row).get(col) + Math.min(leftPath, rightPath);
 
         interim.put(key, result);
